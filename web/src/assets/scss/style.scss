@@ -1,0 +1,213 @@
+@import "./variables";
+// 样式重置
+* {
+  box-sizing: border-box; // 以边框为界
+  outline: none; // 取消高亮
+}
+
+html {
+  font-size: 13px; // 网站默认字体大小
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2em;
+  background: #f1f1f1;
+  -webkit-font-smoothing: antialiased;
+}
+// 链接
+a {
+  color: #999;
+}
+
+@each $colorKey, $color in $colors {
+  // 文字颜色
+  .text-#{$colorKey} {
+    color: $color;
+  }
+
+  // 背景颜色
+  .bg-#{$colorKey} {
+    background-color: $color;
+  }
+}
+// text align 文本对齐方式
+@each $var in (left, center, right) {
+  .text-#{$var} {
+    text-align: $var !important; // !important 表示强制应用
+  }
+}
+
+@each $sizeKey, $size in $font-sizes {
+  .fs-#{$sizeKey} {
+    font-size: $size * $base-font-size;
+  }
+}
+
+// width, height
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
+}
+
+// 通用flex布局样式定义
+// 水平
+.d-flex {
+  display: flex;
+}
+// 垂直方式
+.flex-column {
+  flex-direction: column;
+}
+// 换行
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+@each $key, $value in $flex-jc {
+  .jc-#{$key} {
+    justify-content: $value;
+  }
+}
+
+@each $key, $value in $flex-ai {
+  .ai-#{$key} {
+    align-items: $value;
+  }
+}
+// 水平增长
+.flex-1 {
+  flex: 1;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+//m-0, mx-0
+@each $typeKey, $type in $spacing-types {
+  // .m-1
+  @each $sizeKey, $size in $spacing-sizes {
+    .#{$typeKey}-#{$sizeKey} {
+      #{$type}: $size * $spacing-base-size;
+    }
+  }
+  // .mx-1
+  @each $sizeKey, $size in $spacing-sizes {
+    .#{$typeKey}x-#{$sizeKey} {
+      #{$type}-left: $size * $spacing-base-size;
+      #{$type}-right: $size * $spacing-base-size;
+    }
+  }
+  // .my-1
+  @each $sizeKey, $size in $spacing-sizes {
+    .#{$typeKey}y-#{$sizeKey} {
+      #{$type}-top: $size * $spacing-base-size;
+      #{$type}-bottom: $size * $spacing-base-size;
+    }
+  }
+
+  // .mt-1
+  @each $directionKey, $direction in $spacing-directions {
+    @each $sizeKey, $size in $spacing-sizes {
+      .#{$typeKey}#{$directionKey}-#{$sizeKey} {
+        #{$type}-#{$direction}: $size * $spacing-base-size;
+      }
+    }
+  }
+}
+
+// btn
+.btn {
+  border: none;
+  border-radius: 0.1538rem;
+  font-size: map-get($font-sizes, "sm") * $base-font-size;
+  padding: 0.2rem 0.6rem;
+}
+
+// nav
+.nav {
+  display: flex; // 表示横向排列
+  .nav-item {
+    border-bottom: 3px solid transparent;
+    padding-bottom: 0.2rem;
+    
+    &.active {
+      color: map-get($colors,'primary');
+      border-bottom-color: 3px solid map-get($colors,'primary');
+    }
+  }
+  &.nav-inverse{
+    .nav-item {
+      color: map-get($colors,'white');
+      &.active {
+        border-bottom-color: map-get($colors,'white');
+      }
+    }
+  }
+}
+
+// sprite,精灵图片必须设置宽高，不然显示不出来
+.sprite {
+  background: url(../images/index.png) no-repeat 0 0;
+  background-size: 28.8462rem;
+  display: inline-block;
+  &.sprite-news {
+    width: 23px;
+    height: 20px;
+    background-position: 63.546% 15.517%;
+  }
+  &.sprite-story{
+    width: 23px;
+    height: 20px;
+    background-position: 90.483% 15.614%;
+  }
+  &.sprite-store{
+    width: 19px;
+	height: 22px;
+    background-position:  36.746% 0.924%;
+  }
+  &.sprite-service{
+    width: 20px;
+	height: 20px;
+    background-position: 10.408% 15.517%;
+  }
+  &.sprite-freshman{
+    width: 20px;
+	height: 21px;
+    background-position: 89.733% 1.266%;
+  }
+  &.sprite-inherit{
+    width: 24px;
+	height: 20px;
+    background-position: 36.467% 15.287%;
+  }
+  &.sprite-fan{
+    width: 31px;
+    height: 25px;
+    background-position: 9.302% 0.813%;
+  }
+  &.sprite-campus{
+    width: 24px;
+    height: 24px;
+    background-position: 63.3% 0.927%;
+  }
+  &.sprite-officalaccount{
+    width: 24px;
+    height: 20px;
+    background-position: 0 96.207%;
+  }
+  &.sprite-version{
+    width: 24px;
+    height: 22px;
+    background-position: 63.39% 41.292% ;
+  }
+  &.sprite-arrow{
+    width: 10px;
+	height: 10px;
+    background-position: 38.577% 52.076% ;
+  }
+}
