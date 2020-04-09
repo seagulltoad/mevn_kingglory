@@ -8,7 +8,7 @@ Vue.config.productionTip = false
 // 自定义全局样式
 import './assets/scss/style.scss'
 // import style
-import 'swiper/css/swiper.css'
+import 'swiper/dist/css/swiper.css'
 // inconfont
 import './assets/iconfont/iconfont.css'
 

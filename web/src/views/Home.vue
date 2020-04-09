@@ -73,38 +73,6 @@
       </template>
     </m-list-card>
 
-    <m-list-card icon="cc-menu-circle" title="英雄列表" :categories="newsCats">
-      <template #items="{category}">
-        <div class="py-2  fs-lg d-flex" v-for="(news,i) in category.newsList" :key="i">
-          <span>[{{news.categoryName}}]</span>
-          <span>|</span>
-          <span>{{news.title}}</span>
-          <span>{{news.date}}</span>
-        </div>
-      </template>
-    </m-list-card>
-
-    <m-list-card icon="cc-menu-circle" title="精彩视频" :categories="newsCats">
-      <template #items="{category}">
-        <div class="py-2  fs-lg d-flex" v-for="(news,i) in category.newsList" :key="i">
-          <span>[{{news.categoryName}}]</span>
-          <span>|</span>
-          <span>{{news.title}}</span>
-          <span>{{news.date}}</span>
-        </div>
-      </template>
-    </m-list-card>
-
-    <m-list-card icon="cc-menu-circle" title="图文攻略" :categories="newsCats">
-      <template #items="{category}">
-        <div class="py-2  fs-lg d-flex" v-for="(news,i) in category.newsList" :key="i">
-          <span>[{{news.categoryName}}]</span>
-          <span>|</span>
-          <span>{{news.title}}</span>
-          <span>{{news.date}}</span>
-        </div>
-      </template>
-    </m-list-card>
   </div>
 </template>
 
